@@ -1,5 +1,5 @@
 def render_all(con, entities, game_map, root_console, screen_width, screen_height, colors):
-    ## Draw all tiles in the game map
+    # Draw all tiles in the game map
     for x, y in game_map:
         wall = not game_map.transparent[x, y]
 
@@ -8,7 +8,7 @@ def render_all(con, entities, game_map, root_console, screen_width, screen_heigh
         else:
             con.draw_char(x, y, None, fg=None, bg=colors.get('dark_ground'))
 
-    ## Draw all entities in the list
+    # Draw all entities in the list
     for entity in entities:
         draw_entity(con, entity)
 
@@ -25,5 +25,5 @@ def draw_entity(con, entity):
 
 
 def clear_entity(con, entity):
-    ## Erase the character that represents this object
+    # Erase the character that represents this object
     con.draw_char(entity.x, entity.y, ' ', entity.color, bg=None)

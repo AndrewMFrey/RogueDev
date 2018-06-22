@@ -1,5 +1,5 @@
 def handle_keys(user_input):
-    ## Movement keys
+    # Movement keys
     if user_input.key == 'UP':
         return {'move': (0, -1)}
     elif user_input.key == 'DOWN':
@@ -10,10 +10,10 @@ def handle_keys(user_input):
         return {'move': (1, 0)}
 
     if user_input.key == 'ENTER' and user_input.alt:
-        ## Alt+Enter: toggle full screen
+        # Alt+Enter: toggle full screen
         return {'fullscreen': True}
     elif user_input.key == 'ESCAPE':
-        ## Escape: exit the game
+        # Escape: exit the game
         return {'exit': True}
 
     return {}

@@ -9,6 +9,6 @@ class Entity:
         self.color = color
 
     def move(self, dx, dy):
-        ## Move the entity by a given amount
+        # Move the entity by a given amount
         self.x += dx
         self.y += dy

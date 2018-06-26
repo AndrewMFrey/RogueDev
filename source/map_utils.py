@@ -6,7 +6,8 @@ from source.components.ai import BasicMonster
 from source.components.fighter import Fighter
 from source.components.item import Item
 from source.entity import Entity
-from source.item_functions import heal, cast_lightning
+from source.item_functions import heal, cast_fireball, cast_lightning
+from source.game_messages import Message
 from source.render_functions import RenderOrder
 
 
@@ -90,6 +91,12 @@ def place_entities(room, entities, max_monsters_per_room, max_items_per_room, co
             if item_chance < 70:
                 item_component = Item(use_function=heal, amount=4)
                 item = Entity(x, y, '!', colors.get('violet'), 'Healing Potion', render_order=RenderOrder.ITEM,
+                              item=item_component)
+            elif item_chance < 85:
+                item_component = Item(use_function=cast_fireball, targeting=True, targeting_message=Message(
+                    'Left-click a target tile for the fireball, or right-click to cancel.', colors.get('light_cyan')),
+                                      damage=12, radius=3)
+                item = Entity(x, y, '#', colors.get('red'), 'Fireball Scroll', render_order=RenderOrder.ITEM,
                               item=item_component)
             else:
                 item_component = Item(use_function=cast_lightning, damage=20, maximum_range=5)
